@@ -1,0 +1,373 @@
+{
+  "groups": [
+    {
+      "id": "windows",
+      "label": "Windows",
+      "sections": [
+        "windows",
+        "grouping",
+        "interaction"
+      ]
+    },
+    {
+      "id": "bar",
+      "label": "Taskbar",
+      "sections": [
+        "bar"
+      ]
+    },
+    {
+      "id": "switcher",
+      "label": "Alt + Tab",
+      "sections": [
+        "switcher"
+      ]
+    },
+    {
+      "id": "previews",
+      "label": "Previews",
+      "sections": [
+        "preview",
+        "picker"
+      ]
+    },
+    {
+      "id": "workspace",
+      "label": "Workspaces",
+      "sections": [
+        "workspace"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard",
+      "sections": [
+        "keyboard"
+      ]
+    },
+    {
+      "id": "advanced",
+      "label": "Advanced",
+      "sections": [
+        "advanced"
+      ]
+    }
+  ],
+  "fields": {
+    "windows.otherWorkspace": {
+      "label": "Windows on another workspace",
+      "description": "Controls what happens when you click the icon of a visible window on another workspace. “Bring here” moves that window to the workspace you are viewing. “Go to workspace” takes you to the window instead. For example, click Firefox on workspace 3 while you are on workspace 1: move Firefox to 1, or switch yourself to 3."
+    },
+    "windows.activeClick": {
+      "label": "Click the active window",
+      "description": "Controls a second click on the window you are already using. “Minimize” hides it in the taskbar. “Maximize / restore” alternates between filling the available screen and its previous size. “Focus only” leaves it visible and unchanged. Clicking a different window on this workspace always focuses it first."
+    },
+    "windows.minimizedRestore": {
+      "label": "Restore minimized windows",
+      "description": "Chooses where a hidden window reappears. “Current workspace” brings it to you. “Original workspace” takes you back to where it was minimized. Example: minimize a terminal on workspace 2, move to 4, then click its icon. It can reappear on 4 or take you back to 2."
+    },
+    "windows.restoreFullscreen": {
+      "label": "Restore true fullscreen",
+      "description": "Only affects a window that was fullscreen before you minimized it. On restores fullscreen, which can cover the bar. Off restores it maximized in the available desktop area, keeping the bar reachable. Ordinary windows are not made fullscreen by this setting."
+    },
+    "windows.followDialogs": {
+      "label": "Keep dialogs with their window",
+      "description": "On keeps an app and its related dialog boxes together when you move, minimize, or restore them. For example, a browser’s Save File dialog follows its browser window and receives focus. Off lets these actions affect just the selected window."
+    },
+    "windows.restoreGeometry": {
+      "label": "Remember window size and position",
+      "description": "On restores a floating window to the size and position it had before minimizing. Off lets Hyprland choose its placement. This is most noticeable with manually positioned terminals; tiled windows are still arranged by the workspace layout."
+    },
+    "windows.nativeMinimize": {
+      "label": "Use application minimize buttons",
+      "description": "On makes an app’s own minimize button hide its window in this taskbar. Off ignores those application requests; clicking the taskbar icon or using the minimize shortcut still works. It does not add a minimize button to apps that do not already have one."
+    },
+    "bar.allWorkspaces": {
+      "label": "Show every workspace",
+      "description": "On shows app icons from every workspace. Off shows only windows on the workspace displayed by this bar. Minimized windows stay listed either way, so you can always restore them."
+    },
+    "bar.currentMonitorOnly": {
+      "label": "Only show this monitor",
+      "description": "Useful with multiple monitors. On makes each monitor’s bar list only windows belonging to that monitor. Off lets a bar include windows from your other monitors too. Minimized windows use the monitor they belonged to before being hidden."
+    },
+    "bar.maxWidth": {
+      "label": "Taskbar width",
+      "description": "Limits how much bar space the app icons can occupy. Increasing this shows more icons directly. Decreasing it makes the “…” button appear sooner; the remaining windows are available in that button’s list. This does not resize the entire top bar."
+    },
+    "bar.iconSize": {
+      "label": "App icon size",
+      "description": "Changes the size of the app artwork inside each taskbar button. Larger values make the Firefox, terminal, and other icons easier to see. This does not enlarge the button’s clickable area; use “Icon button size” for that."
+    },
+    "bar.cellSize": {
+      "label": "Icon button size",
+      "description": "Sets the space reserved for each clickable app button. Larger values make icons easier to click and give them more room, but fit fewer windows in the bar. The artwork itself is controlled separately by “App icon size”."
+    },
+    "bar.spacing": {
+      "label": "Space between icons",
+      "description": "Adds empty space between neighboring app buttons. Increase it for a more spread-out bar, or reduce it to fit more icons. It does not change the size of the icons or their buttons."
+    },
+    "bar.showLayoutButton": {
+      "label": "Show workspace mode button",
+      "description": "Shows the small workspace-mode button before the app icons. Click it to switch this workspace between managed tiling and freely movable floating windows. Turning this off hides the button; the layout shortcut and taskbar context menu still work."
+    },
+    "bar.showGroupCounts": {
+      "label": "Show grouped window counts",
+      "description": "When “Group windows by app” is on, adds a count to an app that has several windows. For example, three Firefox windows share one icon marked 3. This has no effect when windows are shown separately."
+    },
+    "bar.showIndicators": {
+      "label": "Show window indicators",
+      "description": "Shows small marks under app icons to help distinguish active, running, and minimized windows. Turn it off for a cleaner bar with just the app artwork. Window behavior stays the same."
+    },
+    "bar.minimizedOpacity": {
+      "label": "Minimized icon opacity",
+      "description": "Controls how faded minimized app icons look. 1 means fully visible; 0.5 means about half opacity; 0.1 makes them very faint. This changes only the icon, not the window when you restore it."
+    },
+    "bar.animationDurationMs": {
+      "label": "Icon animation duration",
+      "description": "Time for an app icon’s highlight to fade between states, in milliseconds. 140 is 0.14 seconds. Higher values make the fade slower; 0 makes it instant. This does not change the Alt+Tab card animation."
+    },
+    "bar.excludedApps": {
+      "label": "Hidden applications",
+      "description": "Hides matching apps from the taskbar, its window list, and Alt+Tab. Enter one exact app class per line, such as firefox; these are identifiers, not window titles. Empty means hide nothing. A hidden app’s minimized windows can still be recovered with “Restore all minimized windows”."
+    },
+    "grouping.enabled": {
+      "label": "Group windows by app",
+      "description": "On puts windows from the same app behind a single taskbar icon. For example, three terminals become one terminal icon. Off gives each window its own icon. Use “Click a grouped app” to choose what clicking a shared icon does."
+    },
+    "grouping.clickAction": {
+      "label": "Click a grouped app",
+      "description": "Only matters when several windows share one app icon. “Open window list” lets you choose among them. “Activate a window” acts on the app’s focused window, or its first window if none is focused. Numbered taskbar shortcuts always use that focused-or-first window rule."
+    },
+    "interaction.dragToReorder": {
+      "label": "Drag to reorder icons",
+      "description": "On lets you drag app icons left or right to rearrange them. Off keeps their current order and prevents accidental dragging. The numbered taskbar shortcuts follow the icon order, so moving an icon also changes which numbered shortcut reaches it."
+    },
+    "interaction.dragThreshold": {
+      "label": "Drag distance",
+      "description": "How far the pointer must move while holding an icon before the movement counts as a drag. Higher values make accidental rearranging less likely. Lower values let dragging begin with a smaller movement. Applies only when dragging to reorder is enabled."
+    },
+    "interaction.middleClick": {
+      "label": "Middle-click action",
+      "description": "Chooses what pressing the mouse wheel on an app icon does. You can minimize, close, maximize, go to the window’s workspace, or bring the window here. “No action” ignores the click. “Close window” asks the app to close, so it may show an unsaved-work dialog."
+    },
+    "workspace.defaultFloating": {
+      "label": "Float new workspaces by default",
+      "description": "Chooses the layout for workspaces without an individual mode saved. On uses floating windows that you can move and resize freely. Off uses managed tiling, where windows are arranged automatically. Entries under “Workspace modes” override this default."
+    },
+    "workspace.modes": {
+      "label": "Workspace modes",
+      "description": "Choose tiling or floating separately for each workspace. Enter one per line: “1 = floating” lets windows move freely on workspace 1; “3 = tiled” arranges windows automatically on workspace 3. Remove a line to use the default. The mode button also updates this list."
+    },
+    "workspace.resizeOnFloat": {
+      "label": "Resize newly floating windows",
+      "description": "On makes large tiled windows smaller when this plugin switches them to floating mode. This makes it easier to see that a terminal is now movable. Off leaves their former size. The width and height limits below control the shrinkage; already floating windows are left alone."
+    },
+    "workspace.floatWidthPercent": {
+      "label": "Floating width limit (%)",
+      "description": "Maximum width for a window newly changed from tiled to floating, as a percentage of the monitor’s available width. 75 means at most three quarters of that width. Smaller windows are not enlarged. Only applies when “Resize newly floating windows” is on."
+    },
+    "workspace.floatHeightPercent": {
+      "label": "Floating height limit (%)",
+      "description": "Maximum height for a window newly changed from tiled to floating, as a percentage of the monitor’s available height. 75 leaves roughly a quarter of the height free. Smaller windows are not enlarged. Only applies when “Resize newly floating windows” is on."
+    },
+    "workspace.centerOnFloat": {
+      "label": "Center newly floating windows",
+      "description": "On moves newly floating windows to the center of their monitor. Off keeps their previous position. This applies when the plugin changes a tiled window to floating; it does not keep recentering windows after you drag them."
+    },
+    "workspace.showTooltip": {
+      "label": "Show mode-button tooltip",
+      "description": "Shows a short explanation when you hover over the workspace-mode button. It tells you what the next click will do: enable floating windows or enable managed tiling. Off hides that hover text."
+    },
+    "keyboard.enabled": {
+      "label": "Enable plugin shortcuts",
+      "description": "Master switch for this plugin’s shortcuts, including minimize, numbered icons, settings, and visual Alt+Tab. Off removes those bindings and restores any stock Alt+Tab bindings the plugin replaced. Mouse controls and the Super+Space settings entry remain available."
+    },
+    "keyboard.minimize": {
+      "label": "Minimize window",
+      "description": "Shortcut that hides the window you are currently using and leaves its icon in the taskbar. Write a combination such as SUPER + M. Leave it empty to disable this one shortcut. An existing stock or custom binding takes priority if the combination is already in use."
+    },
+    "keyboard.restoreAll": {
+      "label": "Restore all windows",
+      "description": "Shortcut that brings back every window hidden by this taskbar on the current workspace. Useful if you have minimized several apps or hidden their icons. Write a combination such as SUPER + CTRL + M, or leave it empty to disable this shortcut."
+    },
+    "keyboard.toggleLayout": {
+      "label": "Toggle workspace mode",
+      "description": "Shortcut that switches the current workspace between automatic tiling and freely movable floating windows. Other workspaces keep their own modes. Write modifiers joined by + and a key, such as SUPER + CTRL + ALT + L. Empty disables this shortcut."
+    },
+    "keyboard.settings": {
+      "label": "Open taskbar settings",
+      "description": "Shortcut for opening this settings panel. For example, SUPER + CTRL + ALT + S means hold Super, Ctrl, and Alt, then press S. Empty disables this shortcut. The taskbar menu and Super+Space → Setup → Taskbar still provide access."
+    },
+    "keyboard.slots": {
+      "label": "Taskbar slots",
+      "description": "Each shortcut acts like clicking the app icon in that numbered position. Moving icons changes which window each shortcut controls. Position 10 is shown as 0 on the keyboard. An empty shortcut disables that individual position."
+    },
+    "preview.enabled": {
+      "label": "Show hover previews",
+      "description": "Shows a small window preview when you leave the pointer over an app icon. Off disables these hover cards. The Alt+Tab selector and the full window list are separate and still work."
+    },
+    "preview.delayMs": {
+      "label": "Preview delay",
+      "description": "How long you must hover over an icon before its preview opens, in milliseconds. 450 is just under half a second. Increase it if previews open too easily as you cross the bar; decrease it if you want them sooner."
+    },
+    "preview.hideDelayMs": {
+      "label": "Hide delay",
+      "description": "How long a hover preview remains after the pointer leaves its icon or card, in milliseconds. A small delay gives you time to move from the icon onto the preview. 250 is a quarter of a second; 0 closes it immediately."
+    },
+    "preview.width": {
+      "label": "Preview width",
+      "description": "Width of the small hover-preview card above or below an app icon. Increase it to see more detail and longer titles. This does not change the Alt+Tab previews or the full window list."
+    },
+    "preview.height": {
+      "label": "Preview image height",
+      "description": "Height reserved for the window image in a hover-preview card. The title is placed below this area. Increase it for a larger image; it has no visible effect when “Show preview image” is off."
+    },
+    "preview.live": {
+      "label": "Live hover images",
+      "description": "On keeps the hover-preview image updating, so moving content remains visible. Off captures a still image when the preview opens. Minimized or otherwise unavailable windows may not provide an image in either mode."
+    },
+    "preview.showImage": {
+      "label": "Show preview image",
+      "description": "Includes the window thumbnail in hover previews. Turn it off while leaving “Show preview title” on for a compact title-only preview. If both image and title are off, the preview has no useful content; turn off hover previews instead."
+    },
+    "preview.showTitle": {
+      "label": "Show preview title",
+      "description": "Shows the window’s title below its hover-preview image, such as a browser tab or document name. Off leaves only the image. This does not hide titles in Alt+Tab or in the full window list."
+    },
+    "preview.titleLines": {
+      "label": "Title lines",
+      "description": "Maximum number of lines used for a long title in a hover preview. A larger value shows more of a long document or browser title but makes the card taller. Only applies when “Show preview title” is on."
+    },
+    "picker.width": {
+      "label": "Window list width",
+      "description": "Width of the full window list opened by the “…” button or “All windows…” in the taskbar menu. A wider list leaves more room for window titles. This does not resize hover previews or Alt+Tab cards."
+    },
+    "picker.maxHeight": {
+      "label": "Window list height limit",
+      "description": "Maximum height of the full window list. If there are more windows than fit, the list scrolls. Increase it to see more windows at once, or decrease it for a smaller popup."
+    },
+    "picker.rowHeight": {
+      "label": "Window row height",
+      "description": "Height of each entry in the full window list. Larger rows are easier to click and provide more room around titles, but fewer fit before scrolling is needed."
+    },
+    "picker.showWorkspace": {
+      "label": "Show workspace details",
+      "description": "Shows a second line under each title in the full window list, explaining which workspace it belongs to and what clicking will do. Off shows a simpler list with just the icon and title."
+    },
+    "switcher.enabled": {
+      "label": "Enable visual Alt+Tab",
+      "description": "On makes Alt+Tab open the visual stack of window previews. Off removes this visual selector’s shortcuts and restores the stock Alt+Tab actions it replaced. The taskbar itself and its minimize controls keep working."
+    },
+    "switcher.forwardShortcut": {
+      "label": "Next window shortcut",
+      "description": "Opens the visual window selector or advances to the next card when it is already open. Normally ALT + Tab. Empty disables this direction’s shortcut. If you choose a combination without Alt, also turn off “Select when Alt is released”."
+    },
+    "switcher.backwardShortcut": {
+      "label": "Previous window shortcut",
+      "description": "Moves backward through the visual window selector. Normally ALT + SHIFT + Tab. Empty disables this direction’s shortcut. You can still use the arrow keys once the selector is open."
+    },
+    "switcher.replaceStockAltTab": {
+      "label": "Replace stock Alt+Tab",
+      "description": "Allows this plugin to replace Omarchy’s built-in Alt+Tab cycling with its visual selector. Off leaves stock Alt+Tab in charge, so you need unused shortcut combinations for the visual selector. Your own custom conflicting bindings are always left alone."
+    },
+    "switcher.releaseAltToSelect": {
+      "label": "Select when Alt is released",
+      "description": "On chooses the highlighted window as soon as you release Alt. Off keeps the selector open until you press Enter or click the selected card. Turn this off if you remap the selector to a shortcut that does not contain Alt. Escape cancels either way."
+    },
+    "switcher.scope": {
+      "label": "Workspaces to include",
+      "description": "Chooses which workspaces supply cards to Alt+Tab. “All workspaces” lets you reach windows anywhere. “Current workspace” limits visible windows to the workspace you are viewing. Minimized windows can still be included using the separate setting below."
+    },
+    "switcher.includeMinimized": {
+      "label": "Include minimized windows",
+      "description": "On includes windows you have hidden with the taskbar. Selecting one restores it according to “Restore minimized windows”. Off keeps minimized windows out of Alt+Tab; they are still available through their taskbar icons."
+    },
+    "switcher.order": {
+      "label": "Window order",
+      "description": "“Recently focused” starts with windows you used most recently, making it easy to switch back to your last app. “Follow taskbar” arranges the cards in the same window order as the taskbar. The order stays steady while the selector is open."
+    },
+    "switcher.otherWorkspace": {
+      "label": "Select a remote window",
+      "description": "When Alt+Tab selects a visible window elsewhere, “Go to workspace” takes you to it and “Bring here” moves it to you. “Follow taskbar” uses the choice under Windows → Windows on another workspace. Hidden windows instead follow “Restore minimized windows”."
+    },
+    "switcher.width": {
+      "label": "Preview width limit",
+      "description": "Maximum width of a selected Alt+Tab card. Larger values make wide windows bigger. With original proportions enabled, a tall window stays narrow instead of filling this entire width. The height limit can also prevent a card from growing wider."
+    },
+    "switcher.height": {
+      "label": "Preview height limit",
+      "description": "Maximum height of a selected Alt+Tab card. Increase it to make tall windows easier to see. Original window proportions are preserved when enabled, so a very wide window may reach the width limit before reaching this height."
+    },
+    "switcher.sliceWidth": {
+      "label": "Minimum background reveal",
+      "description": "Minimum amount of a background card that should stick out from behind the nearer card, in screen units. A higher value spreads narrow cards out further. It does not set the card’s full width: each background card retains its window’s proportions."
+    },
+    "switcher.spacing": {
+      "label": "Space between cards",
+      "description": "Adds extra horizontal space between cards in the Alt+Tab stack. Higher values spread the stack farther across the screen. Lower or negative values pull cards closer together and increase overlap. Card sizes and window proportions do not change."
+    },
+    "switcher.neighbors": {
+      "label": "Cards on each side",
+      "description": "How many background cards can be shown on each side of the selected window. 3 allows up to three on the left and three on the right, where available. This only limits what is drawn; you can still cycle to every included window."
+    },
+    "switcher.animationDurationMs": {
+      "label": "Slide animation duration",
+      "description": "Time for cards to slide and resize when changing selection, in milliseconds. 220 is about a fifth of a second. Higher values make the movement slower and more noticeable. 0 makes changes instant."
+    },
+    "switcher.livePreview": {
+      "label": "Live selected preview",
+      "description": "On continuously updates the selected card’s image while the selector is open. Off uses a still image. This does not stop the cards sliding; that is controlled by “Slide animation duration”. Minimized windows may have no image available."
+    },
+    "switcher.skewOffset": {
+      "label": "Background slant",
+      "description": "Controls how far the top and bottom edges of background cards are offset to make the diagonal sides. Larger positive values make the slant stronger; negative values reverse its direction. 0 makes background cards rectangular. The selected card stays straight."
+    },
+    "switcher.adaptiveSize": {
+      "label": "Keep selected window proportions",
+      "description": "On makes the front card follow its window’s shape: tall Firefox windows get tall cards, and wide terminals get wide cards. Off gives the front card the fixed width and height limits, which can leave empty space around its image. Background cards retain their own proportions either way."
+    },
+    "switcher.selectedCornerRadius": {
+      "label": "Selected corner radius",
+      "description": "Roundness of the selected card’s corners. 0 gives the sharp square corners of the current Omarchy look. Larger numbers round them more. This does not add a diagonal slant to the front card or change the background cards."
+    },
+    "switcher.backgroundScale": {
+      "label": "Background card scale",
+      "description": "How large background cards are compared with their normal fitted size. 0.9 means 90% of both width and height; 0.5 means half size; 1 means full size. Every card keeps its own window’s proportions. Smaller values make the selected window stand out more."
+    },
+    "switcher.backgroundReveal": {
+      "label": "Background card reveal",
+      "description": "Controls how much of each background card sticks out from behind its nearer neighbor. 0.62 exposes roughly 62%; a larger value spreads the stack and shows more of each window. A smaller value overlaps them more. The minimum reveal and extra spacing also affect the result."
+    },
+    "advanced.pollIntervalMs": {
+      "label": "Fallback refresh interval",
+      "description": "Time between backup checks for window and configuration changes, in milliseconds. 2000 means two seconds. Most window changes arrive immediately as events; this catches anything missed and picks up config edits. Lower values check more often and use slightly more CPU."
+    },
+    "advanced.recoveryIntervalMs": {
+      "label": "Recovery check interval",
+      "description": "How often the recovery process checks whether the plugin has been disabled or removed, in milliseconds. 1000 means once a second. It then restores hidden windows and removes the plugin’s shortcuts and menu entry. This does not change normal minimize or restore speed."
+    },
+    "bar.settingsAreaWidth": {
+      "label": "Empty settings area",
+      "description": "Size of the empty area after the last app icon. Right-click that area to open the taskbar menu. Increase it if the empty area is hard to hit. It does not change the spacing between individual icons."
+    }
+  },
+  "choices": {
+    "bring": "Bring here",
+    "switch": "Go to workspace",
+    "minimize": "Minimize",
+    "maximize": "Maximize / restore",
+    "focus": "Focus only",
+    "current": "Current workspace",
+    "original": "Original workspace",
+    "picker": "Open window list",
+    "toggle": "Activate a window",
+    "none": "No action",
+    "close": "Close window",
+    "goto": "Go to window",
+    "restore": "Bring here",
+    "all": "All workspaces",
+    "workspace": "Current workspace",
+    "recent": "Recently focused",
+    "taskbar": "Follow taskbar"
+  }
+}

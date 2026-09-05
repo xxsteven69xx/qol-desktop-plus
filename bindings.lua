@@ -1,0 +1,2 @@
+-- Compatibility shim for older installations.
+-- Shortcuts now belong to the native companion and register automatically.

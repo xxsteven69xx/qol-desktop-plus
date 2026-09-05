@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+native/*.so
+native/*.so.new
+native/version.txt

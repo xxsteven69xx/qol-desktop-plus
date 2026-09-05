@@ -1,0 +1,492 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "default": 1,
+      "const": 1
+    },
+    "windows": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "otherWorkspace": {
+          "type": "string",
+          "default": "bring",
+          "enum": [
+            "bring",
+            "switch"
+          ]
+        },
+        "activeClick": {
+          "type": "string",
+          "default": "minimize",
+          "enum": [
+            "minimize",
+            "maximize",
+            "focus"
+          ]
+        },
+        "minimizedRestore": {
+          "type": "string",
+          "default": "current",
+          "enum": [
+            "current",
+            "original"
+          ]
+        },
+        "restoreFullscreen": {
+          "type": "boolean",
+          "default": false
+        },
+        "followDialogs": {
+          "type": "boolean",
+          "default": true
+        },
+        "restoreGeometry": {
+          "type": "boolean",
+          "default": true
+        },
+        "nativeMinimize": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "bar": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allWorkspaces": {
+          "type": "boolean",
+          "default": true
+        },
+        "currentMonitorOnly": {
+          "type": "boolean",
+          "default": false
+        },
+        "maxWidth": {
+          "type": "integer",
+          "default": 260,
+          "minimum": 40,
+          "maximum": 4000
+        },
+        "iconSize": {
+          "type": "integer",
+          "default": 17,
+          "minimum": 8,
+          "maximum": 96
+        },
+        "cellSize": {
+          "type": "integer",
+          "default": 30,
+          "minimum": 12,
+          "maximum": 128
+        },
+        "spacing": {
+          "type": "integer",
+          "default": 2,
+          "minimum": 0,
+          "maximum": 32
+        },
+        "showLayoutButton": {
+          "type": "boolean",
+          "default": true
+        },
+        "showGroupCounts": {
+          "type": "boolean",
+          "default": true
+        },
+        "showIndicators": {
+          "type": "boolean",
+          "default": true
+        },
+        "minimizedOpacity": {
+          "type": "number",
+          "default": 0.48,
+          "minimum": 0.1,
+          "maximum": 1
+        },
+        "animationDurationMs": {
+          "type": "integer",
+          "default": 140,
+          "minimum": 0,
+          "maximum": 2000
+        },
+        "excludedApps": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "settingsAreaWidth": {
+          "type": "integer",
+          "default": 24,
+          "minimum": 12,
+          "maximum": 100
+        }
+      }
+    },
+    "grouping": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "clickAction": {
+          "type": "string",
+          "default": "picker",
+          "enum": [
+            "picker",
+            "toggle"
+          ]
+        }
+      }
+    },
+    "preview": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "delayMs": {
+          "type": "integer",
+          "default": 450,
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "hideDelayMs": {
+          "type": "integer",
+          "default": 250,
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "width": {
+          "type": "integer",
+          "default": 300,
+          "minimum": 100,
+          "maximum": 1200
+        },
+        "height": {
+          "type": "integer",
+          "default": 145,
+          "minimum": 60,
+          "maximum": 800
+        },
+        "live": {
+          "type": "boolean",
+          "default": true
+        },
+        "showImage": {
+          "type": "boolean",
+          "default": true
+        },
+        "showTitle": {
+          "type": "boolean",
+          "default": true
+        },
+        "titleLines": {
+          "type": "integer",
+          "default": 2,
+          "minimum": 1,
+          "maximum": 6
+        }
+      }
+    },
+    "picker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "width": {
+          "type": "integer",
+          "default": 370,
+          "minimum": 200,
+          "maximum": 1200
+        },
+        "maxHeight": {
+          "type": "integer",
+          "default": 420,
+          "minimum": 100,
+          "maximum": 1600
+        },
+        "rowHeight": {
+          "type": "integer",
+          "default": 54,
+          "minimum": 30,
+          "maximum": 160
+        },
+        "showWorkspace": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dragToReorder": {
+          "type": "boolean",
+          "default": true
+        },
+        "dragThreshold": {
+          "type": "integer",
+          "default": 6,
+          "minimum": 1,
+          "maximum": 64
+        },
+        "middleClick": {
+          "type": "string",
+          "default": "none",
+          "enum": [
+            "none",
+            "minimize",
+            "close",
+            "maximize",
+            "goto",
+            "restore"
+          ]
+        }
+      }
+    },
+    "workspace": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "defaultFloating": {
+          "type": "boolean",
+          "default": false
+        },
+        "modes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "default": {},
+          "propertyNames": {
+            "minLength": 1
+          }
+        },
+        "resizeOnFloat": {
+          "type": "boolean",
+          "default": true
+        },
+        "floatWidthPercent": {
+          "type": "integer",
+          "default": 75,
+          "minimum": 25,
+          "maximum": 100
+        },
+        "floatHeightPercent": {
+          "type": "integer",
+          "default": 75,
+          "minimum": 25,
+          "maximum": 100
+        },
+        "centerOnFloat": {
+          "type": "boolean",
+          "default": true
+        },
+        "showTooltip": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "keyboard": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "minimize": {
+          "type": "string",
+          "default": "SUPER + M"
+        },
+        "restoreAll": {
+          "type": "string",
+          "default": "SUPER + CTRL + M"
+        },
+        "toggleLayout": {
+          "type": "string",
+          "default": "SUPER + CTRL + ALT + L"
+        },
+        "slots": {
+          "type": "array",
+          "default": [
+            "SUPER + CTRL + ALT + code:10",
+            "SUPER + CTRL + ALT + code:11",
+            "SUPER + CTRL + ALT + code:12",
+            "SUPER + CTRL + ALT + code:13",
+            "SUPER + CTRL + ALT + code:14",
+            "SUPER + CTRL + ALT + code:15",
+            "SUPER + CTRL + ALT + code:16",
+            "SUPER + CTRL + ALT + code:17",
+            "SUPER + CTRL + ALT + code:18",
+            "SUPER + CTRL + ALT + code:19"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "minItems": 10,
+          "maxItems": 10
+        },
+        "settings": {
+          "type": "string",
+          "default": "SUPER + CTRL + ALT + S"
+        }
+      }
+    },
+    "advanced": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pollIntervalMs": {
+          "type": "integer",
+          "default": 2000,
+          "minimum": 250,
+          "maximum": 10000
+        },
+        "recoveryIntervalMs": {
+          "type": "integer",
+          "default": 1000,
+          "minimum": 250,
+          "maximum": 5000
+        }
+      }
+    },
+    "switcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "forwardShortcut": {
+          "type": "string",
+          "default": "ALT + Tab"
+        },
+        "backwardShortcut": {
+          "type": "string",
+          "default": "ALT + SHIFT + Tab"
+        },
+        "replaceStockAltTab": {
+          "type": "boolean",
+          "default": true
+        },
+        "releaseAltToSelect": {
+          "type": "boolean",
+          "default": true
+        },
+        "scope": {
+          "type": "string",
+          "default": "all",
+          "enum": [
+            "all",
+            "workspace"
+          ]
+        },
+        "includeMinimized": {
+          "type": "boolean",
+          "default": true
+        },
+        "order": {
+          "type": "string",
+          "default": "recent",
+          "enum": [
+            "recent",
+            "taskbar"
+          ]
+        },
+        "otherWorkspace": {
+          "type": "string",
+          "default": "switch",
+          "enum": [
+            "switch",
+            "bring",
+            "taskbar"
+          ]
+        },
+        "width": {
+          "type": "integer",
+          "default": 768,
+          "minimum": 200,
+          "maximum": 1600
+        },
+        "height": {
+          "type": "integer",
+          "default": 475,
+          "minimum": 100,
+          "maximum": 1000
+        },
+        "sliceWidth": {
+          "type": "integer",
+          "default": 108,
+          "minimum": 40,
+          "maximum": 240
+        },
+        "spacing": {
+          "type": "integer",
+          "default": 12,
+          "minimum": -80,
+          "maximum": 40
+        },
+        "neighbors": {
+          "type": "integer",
+          "default": 3,
+          "minimum": 1,
+          "maximum": 6
+        },
+        "animationDurationMs": {
+          "type": "integer",
+          "default": 220,
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "livePreview": {
+          "type": "boolean",
+          "default": true
+        },
+        "skewOffset": {
+          "type": "integer",
+          "default": 28,
+          "minimum": -50,
+          "maximum": 50
+        },
+        "adaptiveSize": {
+          "type": "boolean",
+          "default": true
+        },
+        "selectedCornerRadius": {
+          "type": "integer",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 32
+        },
+        "backgroundScale": {
+          "type": "number",
+          "default": 0.9,
+          "minimum": 0.5,
+          "maximum": 1
+        },
+        "backgroundReveal": {
+          "type": "number",
+          "default": 0.62,
+          "minimum": 0.25,
+          "maximum": 1
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Windows for Omarchy settings"
+}

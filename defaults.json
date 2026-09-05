@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "windows": {
+    "otherWorkspace": "bring",
+    "activeClick": "minimize",
+    "minimizedRestore": "current",
+    "restoreFullscreen": false,
+    "followDialogs": true,
+    "restoreGeometry": true,
+    "nativeMinimize": true
+  },
+  "bar": {
+    "allWorkspaces": true,
+    "currentMonitorOnly": false,
+    "maxWidth": 260,
+    "iconSize": 17,
+    "cellSize": 30,
+    "spacing": 2,
+    "showLayoutButton": true,
+    "showGroupCounts": true,
+    "showIndicators": true,
+    "minimizedOpacity": 0.48,
+    "animationDurationMs": 140,
+    "excludedApps": [],
+    "settingsAreaWidth": 24
+  },
+  "grouping": {
+    "enabled": false,
+    "clickAction": "picker"
+  },
+  "preview": {
+    "enabled": true,
+    "delayMs": 450,
+    "hideDelayMs": 250,
+    "width": 300,
+    "height": 145,
+    "live": true,
+    "showImage": true,
+    "showTitle": true,
+    "titleLines": 2
+  },
+  "picker": {
+    "width": 370,
+    "maxHeight": 420,
+    "rowHeight": 54,
+    "showWorkspace": true
+  },
+  "interaction": {
+    "dragToReorder": true,
+    "dragThreshold": 6,
+    "middleClick": "none"
+  },
+  "workspace": {
+    "defaultFloating": false,
+    "modes": {},
+    "resizeOnFloat": true,
+    "floatWidthPercent": 75,
+    "floatHeightPercent": 75,
+    "centerOnFloat": true,
+    "showTooltip": true
+  },
+  "keyboard": {
+    "enabled": true,
+    "minimize": "SUPER + M",
+    "restoreAll": "SUPER + CTRL + M",
+    "toggleLayout": "SUPER + CTRL + ALT + L",
+    "slots": [
+      "SUPER + CTRL + ALT + code:10",
+      "SUPER + CTRL + ALT + code:11",
+      "SUPER + CTRL + ALT + code:12",
+      "SUPER + CTRL + ALT + code:13",
+      "SUPER + CTRL + ALT + code:14",
+      "SUPER + CTRL + ALT + code:15",
+      "SUPER + CTRL + ALT + code:16",
+      "SUPER + CTRL + ALT + code:17",
+      "SUPER + CTRL + ALT + code:18",
+      "SUPER + CTRL + ALT + code:19"
+    ],
+    "settings": "SUPER + CTRL + ALT + S"
+  },
+  "advanced": {
+    "pollIntervalMs": 2000,
+    "recoveryIntervalMs": 1000
+  },
+  "switcher": {
+    "enabled": true,
+    "forwardShortcut": "ALT + Tab",
+    "backwardShortcut": "ALT + SHIFT + Tab",
+    "replaceStockAltTab": true,
+    "releaseAltToSelect": true,
+    "scope": "all",
+    "includeMinimized": true,
+    "order": "recent",
+    "otherWorkspace": "switch",
+    "width": 768,
+    "height": 475,
+    "sliceWidth": 108,
+    "spacing": 12,
+    "neighbors": 3,
+    "animationDurationMs": 220,
+    "livePreview": true,
+    "skewOffset": 28,
+    "adaptiveSize": true,
+    "selectedCornerRadius": 0,
+    "backgroundScale": 0.9,
+    "backgroundReveal": 0.62
+  }
+}
