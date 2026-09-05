@@ -1,4 +1,6 @@
-# Windows for Omarchy
+# QoL Desktop+
+
+Taskbar, window controls, and keyboard-first conveniences for Omarchy.
 
 A window list integrated into the existing Omarchy Quickshell bar. The host bar,
 fonts, palette, rounding and theme transitions remain Omarchy's. No second panel.
@@ -66,7 +68,7 @@ only where the widget is placed.
 Install and enable through Omarchy using the published repository URL:
 
 ```sh
-omarchy plugin add https://github.com/xxsteven69xx/omarchy-taskbar --enable
+omarchy plugin add https://github.com/xxsteven69xx/qol-desktop-plus --enable
 ```
 
 The widget appears in the left bar section. On its first start it builds and loads
