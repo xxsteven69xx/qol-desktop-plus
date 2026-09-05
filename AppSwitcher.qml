@@ -11,7 +11,21 @@ Item {
   required property var taskbar
   property bool opened: false
   property bool layoutSettled: false
-  onOpenedChanged: if (!opened) layoutSettled = false
+  onOpenedChanged: {
+    if (!opened) layoutSettled = false
+    else refreshWallpaper()
+  }
+  property string wallpaperPath: ""
+  function refreshWallpaper() { if (!wallpaperPathProcess.running) wallpaperPathProcess.running = true }
+  // Read the same wallpaper link as Omarchy's desktop background service.
+  // Resolve it again on open so theme and wallpaper changes follow automatically.
+  Process {
+    id: wallpaperPathProcess
+    command: ["readlink", "-f", Quickshell.env("HOME") + "/.local/state/omarchy/current/background"]
+    running: true
+    stdout: StdioCollector { onStreamFinished: root.wallpaperPath = String(text || "").trim() }
+  }
+  Timer { interval: 2000; repeat: true; running: root.opened && root.option("showDesktop", true); onTriggered: root.refreshWallpaper() }
   property var items: []
   property int selectedIndex: 0
   readonly property var selected: items[selectedIndex] || null
@@ -78,6 +92,18 @@ Item {
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.keyboardFocus: root.opened ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
 
+    Rectangle {
+      anchors.fill: parent
+      visible: root.option("showDesktop", true)
+      color: Color.background
+      Image {
+        anchors.fill: parent
+        source: root.wallpaperPath ? Util.fileUrl(root.wallpaperPath) : ""
+        fillMode: Image.PreserveAspectCrop
+        asynchronous: true
+        cache: false
+      }
+    }
     Rectangle { anchors.fill: parent; color: Color.imagePicker.scrim }
     MouseArea { anchors.fill: parent; onClicked: root.close() }
     Item {

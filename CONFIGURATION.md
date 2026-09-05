@@ -189,6 +189,7 @@ Selecting a window focuses/restores it and never minimizes it.
 | `switcher.skewOffset` | Angled card edges, matching the theme selector (default 28; 0 gives straight edges). |
 | `switcher.neighbors` | Maximum side previews in each direction (default 3). |
 | `switcher.animationDurationMs` | Carousel transition duration (default 220; 0 disables animation). |
+| `switcher.showDesktop` | Show the current Omarchy wallpaper behind the cards (default true). False shows the windows underneath. This does not move or minimize windows. |
 | `switcher.livePreview` | Continuously update the selected visible window (default true). |
 
 The selector uses Omarchy's image-picker palette and hides classes listed in

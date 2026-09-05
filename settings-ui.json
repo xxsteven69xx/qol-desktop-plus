@@ -349,6 +349,10 @@
     "bar.settingsAreaWidth": {
       "label": "Empty settings area",
       "description": "Size of the empty area after the last app icon. Right-click that area to open the taskbar menu. Increase it if the empty area is hard to hit. It does not change the spacing between individual icons."
+    },
+    "switcher.showDesktop": {
+      "label": "Show desktop behind cards",
+      "description": "On shows your current Omarchy wallpaper behind the Alt + Tab cards, covering the windows underneath. Off shows the open windows behind the cards. Both use the theme’s dimming color. This only changes the selector background; it does not minimize or move any windows."
     }
   },
   "choices": {

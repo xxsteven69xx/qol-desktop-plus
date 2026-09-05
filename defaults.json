@@ -103,6 +103,7 @@
     "adaptiveSize": true,
     "selectedCornerRadius": 0,
     "backgroundScale": 0.9,
-    "backgroundReveal": 0.62
+    "backgroundReveal": 0.62,
+    "showDesktop": true
   }
 }

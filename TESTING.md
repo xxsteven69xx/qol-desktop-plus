@@ -42,3 +42,7 @@ and taskbar QML errors after each release candidate.
 
 For future changes, repeat the relevant desktop checks in a separate compositor
 session. Do not inject test keys or remove outputs on the user's main session.
+
+## Wallpaper backdrop change
+
+The installed desktop was visually checked with real window previews over the current Omarchy wallpaper. The underlying windows remain in place. The new `switcher.showDesktop` setting defaults to true and has matching schema and settings-menu help. All six settings tests and plugin validation pass. A shell restart was needed to discard cached QML during this update.

@@ -483,6 +483,10 @@
           "default": 0.62,
           "minimum": 0.25,
           "maximum": 1
+        },
+        "showDesktop": {
+          "type": "boolean",
+          "default": true
         }
       }
     }
