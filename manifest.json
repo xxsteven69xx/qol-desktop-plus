@@ -3,7 +3,7 @@
   "id": "legion.taskbar",
   "name": "QoL Desktop+",
   "version": "1.4.1",
-  "description": "Minimize windows, switch apps visually, and choose tiling or floating for each workspace. Built into your Omarchy bar.",
+  "description": "Keep Omarchy’s look and keyboard workflow, with optional minimizing, floating workspaces, and visual app switching.",
   "kinds": [
     "bar-widget"
   ],

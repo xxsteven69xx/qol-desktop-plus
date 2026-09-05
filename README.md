@@ -1,19 +1,19 @@
 # QoL Desktop+
 
-Minimize windows. Switch visually. Float any workspace.
+Omarchy’s feel. A few familiar desktop comforts.
 
-Familiar window controls in your existing Omarchy bar, using your theme and hotkeys.
+Keep Omarchy’s themes, keyboard workflow, and tiling. Add familiar desktop controls where you want them, through the bar you already use.
 
 https://github.com/user-attachments/assets/14b43b29-6801-45b5-969e-3e4bec6f70c9
 
-- **Visual Alt+Tab** — live window cards over your wallpaper.
-- **Tiled or floating** — choose independently for each workspace.
-- **Minimize and restore** — from the taskbar, keyboard, or an app’s own button.
-- **Every workspace, one taskbar** — previews, grouping, and drag to reorder.
+- **Float selected workspaces** — keep the rest tiled.
+- **Minimize when useful** — taskbar and keyboard controls, plus support for app minimize buttons.
+- **Switch visually** — optional Alt+Tab cards over your wallpaper.
+- **Make the bar yours** — choose previews, app grouping, and icon order.
 
 ![The same apps in tiled mode on the left and floating mode on the right](docs/media/tiled-floating.webp)
 
-*Tiled when you want structure. Floating when you want room to move.*
+*Keep your tiled workspaces. Float the ones where you want a little more freedom.*
 
 ## Install
 
