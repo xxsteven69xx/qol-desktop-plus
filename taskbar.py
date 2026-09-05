@@ -272,7 +272,7 @@ def activate_slot(value):
     monitor = next((m for m in ctl('monitors', json_output=True) if m.get('focused')), None)
     if not monitor:
         return
-    result = subprocess.run(['omarchy', 'shell', 'legion.taskbar.' + monitor['name'],
+    result = subprocess.run(['omarchy', 'shell', 'qol-desktop-plus.' + monitor['name'],
                              'activate', str(slot)], capture_output=True, text=True, timeout=4)
     if result.returncode:
         raise RuntimeError(result.stderr.strip() or result.stdout.strip())
@@ -283,7 +283,7 @@ def open_switcher(value):
     if direction not in (-1,1): raise ValueError('Switcher direction must be 1 or -1')
     monitor = next((m for m in ctl('monitors', json_output=True) if m.get('focused')), None)
     if monitor:
-        result = subprocess.run(['omarchy','shell','legion.taskbar.'+monitor['name'],'switcher',str(direction)], capture_output=True,text=True,timeout=4)
+        result = subprocess.run(['omarchy','shell','qol-desktop-plus.'+monitor['name'],'switcher',str(direction)], capture_output=True,text=True,timeout=4)
         if result.returncode: raise RuntimeError(result.stderr.strip() or result.stdout.strip())
 
 
@@ -380,7 +380,7 @@ def guard():
         while (RUNTIME / 'hypr' / SIGNATURE / '.socket.sock').exists():
             try:
                 content = json.loads(config.read_text())
-                enabled = any(w.get('id') == 'legion.taskbar' for section in content.get('bar', {}).get('layout', {}).values() for w in section)
+                enabled = any(w.get('id') == 'qol-desktop-plus' for section in content.get('bar', {}).get('layout', {}).values() for w in section)
                 if not enabled or not Path(__file__).exists():
                     transaction('restore-all')
                     unload_native()
@@ -445,7 +445,7 @@ if __name__ == '__main__':
     elif action == 'settings':
         try:
             monitor = next((m for m in ctl('monitors', json_output=True) if m.get('focused')), None)
-            if monitor: subprocess.run(['omarchy','shell','legion.taskbar.'+monitor['name'],'settings'],check=True,timeout=4)
+            if monitor: subprocess.run(['omarchy','shell','qol-desktop-plus.'+monitor['name'],'settings'],check=True,timeout=4)
         except (OSError,RuntimeError,ValueError,subprocess.SubprocessError) as error:
             sys.exit(str(error))
     elif action == 'switcher':

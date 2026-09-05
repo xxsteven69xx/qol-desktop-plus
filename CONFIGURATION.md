@@ -15,7 +15,7 @@ across helper restarts. It never overwrites a malformed file.
 Validate your file:
 
 ```sh
-python3 ~/.config/omarchy/plugins/legion.taskbar/taskbar.py config-check
+python3 ~/.config/omarchy/plugins/qol-desktop-plus/taskbar.py config-check
 ```
 
 Open the settings panel with **Super+Ctrl+Alt+S**, **Super+Space → Setup → Taskbar**,

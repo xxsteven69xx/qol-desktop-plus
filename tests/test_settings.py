@@ -79,12 +79,12 @@ class SettingsTests(unittest.TestCase):
             menu_integration.sync()
             self.assertEqual(menu_integration.MENU.read_text(), installed)
             data = menu_integration.parsed(installed)
-            self.assertIn('setup.legion-taskbar', data.get('items',data))
+            self.assertIn('setup.qol-desktop-plus', data.get('items',data))
             menu_integration.sync(False)
             self.assertEqual(menu_integration.MENU.read_text(), original)
 
     def test_menu_does_not_replace_an_unowned_entry(self):
-        original = '{"setup.legion-taskbar":{"label":"Custom","action":"true"}}'
+        original = '{"setup.qol-desktop-plus":{"label":"Custom","action":"true"}}'
         menu_integration.MENU.write_text(original)
         menu_integration.sync()
         self.assertEqual(menu_integration.MENU.read_text(), original)

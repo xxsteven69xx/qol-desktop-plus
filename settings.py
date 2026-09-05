@@ -94,7 +94,7 @@ def migrated_defaults():
     except (OSError,ValueError): pass
     try:
         shell=json.loads(Path(os.environ.get('OMARCHY_TASKBAR_CONFIG',str(Path.home()/'.config/omarchy/shell.json'))).read_text())
-        widget=next(w for section in shell.get('bar',{}).get('layout',{}).values() for w in section if w.get('id')=='legion.taskbar')
+        widget=next(w for section in shell.get('bar',{}).get('layout',{}).values() for w in section if w.get('id')=='qol-desktop-plus')
         for key in ('allWorkspaces','maxWidth'):
             if key in widget: result['bar'][key]=widget[key]
     except (OSError,ValueError,StopIteration): pass

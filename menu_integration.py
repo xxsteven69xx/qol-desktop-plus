@@ -8,8 +8,8 @@ import shlex
 import settings as store
 
 MENU = Path(os.environ.get('OMARCHY_TASKBAR_MENU', str(Path(os.environ.get('XDG_CONFIG_HOME',str(Path.home()/'.config'))) / 'omarchy/extensions/omarchy-menu.jsonc')))
-START = '\n  // BEGIN legion.taskbar settings (managed by plugin)\n'
-END = '  // END legion.taskbar settings\n'
+START = '\n  // BEGIN qol-desktop-plus settings (managed by plugin)\n'
+END = '  // END qol-desktop-plus settings\n'
 BLOCK = re.compile(re.escape(START)+r'.*?'+re.escape(END),re.S)
 
 def parsed(raw):
@@ -29,9 +29,9 @@ def sync(enabled=True):
         data=parsed(raw)
         if enabled:
             entries=data.get('items',data)
-            if 'setup.legion-taskbar' in entries: return  # Respect an unowned custom entry.
-            entry={'icon':'󰍜','label':'Taskbar','description':'Window behavior, Alt+Tab, previews and shortcuts','action':'python3 '+shlex.quote(str(Path(__file__).parent/'taskbar.py'))+' settings','aliases':['taskbar','taskbar-settings']}
-            block=START+'  "setup.legion-taskbar": '+json.dumps(entry,ensure_ascii=False)+',\n'+END
+            if 'setup.qol-desktop-plus' in entries: return  # Respect an unowned custom entry.
+            entry={'icon':'󰍜','label':'QoL Desktop+','description':'Window behavior, Alt+Tab, previews and shortcuts','action':'python3 '+shlex.quote(str(Path(__file__).parent/'taskbar.py'))+' settings','aliases':['qol-desktop-plus','desktop-plus','taskbar','taskbar-settings']}
+            block=START+'  "setup.qol-desktop-plus": '+json.dumps(entry,ensure_ascii=False)+',\n'+END
             masked=re.sub(r'^\s*//[^\n]*',lambda m:' '*len(m.group()),raw,flags=re.M)
             match=re.search(r'"items"\s*:\s*\{',masked) if isinstance(data.get('items'),dict) else re.search(r'\{',masked)
             pos=match.end()

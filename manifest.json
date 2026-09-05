@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "legion.taskbar",
+  "id": "qol-desktop-plus",
   "name": "QoL Desktop+",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Keep Omarchy’s look and keyboard workflow, with optional minimizing, floating workspaces, and visual app switching.",
   "kinds": [
     "bar-widget"

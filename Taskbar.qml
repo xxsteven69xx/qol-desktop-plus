@@ -9,7 +9,7 @@ import qs.Ui
 
 BarWidget {
   id: root
-  moduleName: "legion.taskbar"
+  moduleName: "qol-desktop-plus"
   MouseArea { anchors.fill: parent; acceptedButtons: Qt.RightButton; onClicked: root.openMenu("") }
   // Omarchy-style ModuleSlots overlay a drag handler for moving whole widgets.
   // This widget owns pointer gestures inside its window list. Raise only its
@@ -22,7 +22,7 @@ BarWidget {
     restoreMode: Binding.RestoreBindingOrValue
   }
   IpcHandler {
-    target: "legion.taskbar." + root.screenName
+    target: "qol-desktop-plus." + root.screenName
     function settings(): void { settingsPanel.open() }
     function switcher(direction: int): void { appSwitcher.advance(direction) }
     function activate(slot: int): bool {

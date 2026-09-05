@@ -23,7 +23,7 @@ fonts, palette, rounding and theme transitions remain Omarchy's. No second panel
 - **Super+left drag** moves a window; **Super+right drag** resizes it.
 - **Alt+Tab** opens a theme-style window carousel. Keep Alt held, use Tab / Shift+Tab to cycle, then release Alt to select. Escape cancels.
 - **Super+Ctrl+Alt+S** opens taskbar settings (also listed in Super+K).
-- Right-click the empty area after the app icons and choose **Taskbar settings…** from the dropdown. App-icon context menus include the same entry. You can also use **Super+Space → Setup → Taskbar**.
+- Right-click the empty area after the app icons and choose **Taskbar settings…** from the dropdown. App-icon context menus include the same entry. You can also use **Super+Space → Setup → QoL Desktop+**.
 - **Super+M** minimizes the focused window.
 - **Super+Ctrl+Alt+1–0** activates taskbar slots 1–10 in icon order, including overflow (0 means 10). Active windows minimize; inactive windows focus or come to this workspace. Dragging icons changes this order. Empty slots do nothing.
 - With app grouping enabled, a numbered shortcut toggles the group’s focused window, or its first window if none is focused.
@@ -88,8 +88,8 @@ its shortcuts and restores hidden windows automatically. It also removes its own
 entry from the Omarchy menu, preserving other entries and comments.
 
 For local development, copy the repository contents into
-`~/.config/omarchy/plugins/legion.taskbar/`, then enable it with
-`omarchy plugin enable legion.taskbar --section left --after omarchy.workspaces`.
+`~/.config/omarchy/plugins/qol-desktop-plus/`, then enable it with
+`omarchy plugin enable qol-desktop-plus --section left --after omarchy.workspaces`.
 After updating QML, run `omarchy restart shell` if cached code remains.
 The plugin handles its own icon gestures without modifying the host bar.
 
@@ -125,14 +125,14 @@ reloads preserve the minimized state. Settings are stored in
 Use Omarchy's normal controls:
 
 ```sh
-omarchy plugin disable legion.taskbar
-omarchy plugin remove legion.taskbar
+omarchy plugin disable qol-desktop-plus
+omarchy plugin remove qol-desktop-plus
 ```
 
 For manual recovery if state was lost:
 
 ```sh
-python3 ~/.config/omarchy/plugins/legion.taskbar/taskbar.py restore-all
+python3 ~/.config/omarchy/plugins/qol-desktop-plus/taskbar.py restore-all
 ```
 
 Upgrading from 1.1: any existing `dofile(...)` include of `bindings.lua` remains
@@ -150,3 +150,14 @@ supported versions.
 
 MIT. See [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md).
 
+
+## Upgrading from the early plugin ID
+
+Versions through 1.4.1 used the ID `legion.taskbar`. Remove that installation before adding the renamed plugin to avoid duplicate taskbars. Your saved preferences remain available.
+
+```sh
+omarchy plugin remove legion.taskbar
+omarchy plugin add https://github.com/xxsteven69xx/qol-desktop-plus --enable
+```
+
+Future updates use `omarchy plugin update qol-desktop-plus`.

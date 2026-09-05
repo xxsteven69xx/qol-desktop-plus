@@ -31,14 +31,16 @@ The taskbar, hotkeys, and settings menu set themselves up. Shortcuts appear in *
 | Activate taskbar slot | Super+Ctrl+Alt+1–0 |
 | Settings | Super+Ctrl+Alt+S |
 
-Settings also open from the taskbar’s right-click menu or **Super+Space → Setup → Taskbar**.
+Settings also open from the taskbar’s right-click menu or **Super+Space → Setup → QoL Desktop+**.
 
 Requires Omarchy Quattro and Hyprland 0.56.2, with Python 3, g++, pkg-config, and matching Hyprland headers. The native companion builds locally on first use. Hyprland API changes may require a plugin update.
+
+Updating an early installation? See the [upgrade instructions](USAGE.md#upgrading-from-the-early-plugin-id).
 
 ## Remove
 
 ```sh
-omarchy plugin remove legion.taskbar
+omarchy plugin remove qol-desktop-plus
 ```
 
 Removal restores minimized windows and removes the plugin’s shortcuts and menu entry. Personal settings remain saved.
